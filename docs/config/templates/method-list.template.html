@@ -1,0 +1,8 @@
+{%- if methodList.length -%}
+  <h3>Methods</h3>
+  <dl>
+  {% for m in methodList %}
+    {$ method(m) $}
+  {% endfor %}
+  </dl>
+{%- endif -%}

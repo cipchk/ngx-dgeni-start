@@ -1,0 +1,23 @@
+<tr>
+  <td>
+    {%- if property.isDirectiveInput -%}
+      <div class="input">
+          [{$ property.directiveInputAlias or property.name $}]
+      </div>
+    {%- endif -%}
+    {%- if property.isDirectiveOutput -%}
+      <div class="output">
+          ({$ property.directiveOutputAlias or property.name $})
+      </div>
+    {%- endif -%}
+    {%- if not property.isDirectiveInput and not property.isDirectiveOutput -%}
+        {$ property.name $}
+    {%- endif -%}
+    {%- if property.isDeprecated -%}
+      <div class="deprecated">Deprecated</div>
+    {%- endif -%} 
+  </td>
+  <td>{$ property.returnType $}</td>
+  <td>{$ property.default $}</td>
+  <td>{$ property.description | marked $}</td>
+</tr>

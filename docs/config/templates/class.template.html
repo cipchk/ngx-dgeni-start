@@ -1,0 +1,31 @@
+<h3 id="{$ class.name $}">{$ class.name $}</h3>
+
+{%- if class.description -%}
+<p>
+    {$ class.description | marked $}
+</p>
+{%- endif -%}
+
+{%- if class.selectors -%}
+<dl class="selectors">
+  <dt>selector:</dt>
+  {% for s in class.selectors %}
+    <dd>{$ s $}</dd>
+  {% endfor %}
+</dl>
+{%- endif -%}
+
+{%- if class.exportAs -%}
+<dl class="exportAs">
+    <dt>exportAs:</dt>
+    <dd>{$ class.exportAs $}</dd>
+</dl>
+{%- endif -%}
+
+{%- if class.isDeprecated -%}
+<div class="deprecated"><strong>Deprecated</strong></div>
+{%- endif -%}
+
+{$ propertyList(class.properties) $}
+
+{$ methodList(class.methods) $}
